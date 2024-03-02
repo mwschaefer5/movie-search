@@ -1,0 +1,30 @@
+<div class="detail-container">
+  <h2 mat-dialog-title>{{ movieDetail?.title }}</h2>
+  <mat-dialog-content>
+    <div>
+      <span><strong>Duration:</strong> {{ movieDetail?.duration }}</span>
+    </div>
+    <div>
+      <!-- should pluralize this label -->
+      <span><strong>Directors:</strong> {{ movieDetail?.directors?.join(", ") }}</span>
+    </div>
+    <div>
+      <!-- should pluralize this label -->
+      <span><strong>Main Actors:</strong> {{ movieDetail?.mainActors?.join(", ") }}</span>
+    </div>
+    <div>
+      <!-- add formatting to the date -->
+      <span><strong>Date Published:</strong> {{ movieDetail?.datePublished }}</span>
+    </div>
+    <div>
+      <span><strong>Rating:</strong> {{ movieDetail?.ratingValue }}</span>
+    </div>
+    <div>
+      <!-- should pluralize this label -->
+      <span><strong>Genres:</strong> {{ genres.join(", ") }}</span>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</div>

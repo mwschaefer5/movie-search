@@ -1,0 +1,17 @@
+<div class="movie-container" (click)="getMovieDetails()">
+  <div class="poster">
+    @if (movie?.posterUrl) {
+      <img class="poster-image" [src]="movie?.posterUrl" />
+    } @else {
+    <div class="poster-image placeholder">
+      <div class="placeholder-content">No Image Found</div>
+    </div>
+    }
+  </div>
+  <div class="movie-details">
+    <div class="title">{{ movie?.title }}</div>
+    @if (movie?.rating) {
+      <div class="rating"><strong>Rating: </strong>>{{ movie?.rating }}</div>
+    }
+  </div>
+</div>

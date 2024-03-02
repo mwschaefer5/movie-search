@@ -1,0 +1,53 @@
+<div class="search-container">
+  <div class="basic-container">
+    <div class="text-input-container">
+      <mat-form-field class="search-form-field">
+        <mat-label>Search</mat-label>
+        <input matInput [formControl]="searchText">
+        @if (searchText.hasError('required')) {
+        <mat-error>Please enter something to search for</mat-error>
+        }
+      </mat-form-field>
+    </div>
+    <div class="secondary-input-container">
+      <mat-form-field>
+        <mat-label>Genre:</mat-label>
+        <mat-select [formControl]="genreSelection">
+          <mat-option value="Any">Any</mat-option>
+          @for (genre of genres; track genre) {
+            <mat-option [value]="genre"><span class="genre-text">{{ genre }}</span></mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button class="search-button" color="primary" (click)="search()" [disabled]="searchText.hasError('required')">Search</button>
+    </div>
+  </div>
+</div>
+
+@if (results || isLoading) {
+  <div class="results">
+    <div class="basic-container">
+      @if (isLoading) {
+        <div class="spinner-container">
+          <mat-spinner></mat-spinner>
+        </div>
+      } @else {
+        <div class="results-container">
+          @for (movie of results; track movie.id) {
+            <app-search-result [movie]="movie"></app-search-result>
+          }
+        </div>
+        <div class="paginator-container">
+          <mat-paginator #paginator
+                         (page)="handlePageEvent($event)"
+                         [length]="length"
+                         [pageSize]="pageSize"
+                         [showFirstLastButtons]="true"
+                         [pageSizeOptions]="pageSizeOptions"
+                         [pageIndex]="pageIndex">
+          </mat-paginator>
+        </div>
+      }
+    </div>
+  </div>
+}
