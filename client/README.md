@@ -14,4 +14,6 @@ The part I'm most proud about in this application would be the way I'm preventin
 If I had more time... I'd do a lot of things. First I'd add defer control logic to the main search page as it's not fully functional until the genres load in remotely. Secondly, I'd probably do call to get details on each of the individual movies returned from the search results in order to populate more of their information on the search results themselves such as duration, which doesn't come back from the search call. I believe this is a restriction from using the REST API instead of GraphQL as I'm limited in what the REST endpoint will return. Additionally, there's quite a bit of code cleanup and maintenance tasks, such as unsubscribing from observables or using async pipe in some places and unit tests.  
 
 ## Running the Application
-Website: http://164.90.138.81/ Please note that this is NOT ssh. Again with more time I would've installed a ssl cert on the server.
+Website: http://164.90.138.81/
+
+Please note that this is NOT ssh. Again with more time I would've installed a ssl cert on the server. Additionally, dist files in the repo are there for ease of deployment, not a normal solution.
